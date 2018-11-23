@@ -1,0 +1,103 @@
+.digit {
+    display: inline-block;
+    padding: 10px;
+    position: relative;
+}
+
+.digit span {
+    display: block;
+    position: relative;
+}
+
+.digit span.show {
+    -webkit-transition: .3s;
+    transition: .3s;
+    background-color: red;
+    box-shadow: -1px 1px 5px rgba(0, 0, 0, .6);
+}
+
+/* horizontal size */
+
+.bar0, .bar3, .bar6 {
+    width: 30px;
+    height: 6px;
+}
+
+/* vertical size */
+
+.bar1, .bar2, .bar4, .bar5 {
+    width: 6px;
+    height: 30px;
+}
+
+/* horizontal alignment */
+
+.bar0, .bar3, .bar6 {
+    margin-top: 1px;
+    margin-left: 6px;
+}
+
+/* left alignment */
+
+.bar1, .bar4 {
+    margin-top: 1px;
+}
+
+/* right alignment */
+
+.bar2, .bar5 {
+    margin-top: -30px;
+    margin-left: 36px;
+}
+
+/* triangles */
+
+.digit span::before, .digit span::after {
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-color: transparent;
+    border-width: 3px;
+}
+
+/* upward */
+
+.digit .bar1::before, .digit .bar2::before, .digit .bar4::before, .digit .bar5::before {
+    top: -6px;
+}
+
+.digit .bar1.show::before, .digit .bar2.show::before, .digit .bar4.show::before, .digit .bar5.show::before {
+    border-bottom-color: red;
+}
+
+/* downward */
+
+.digit .bar1::after, .digit .bar2::after, .digit .bar4::after, .digit .bar5::after {
+    top: 30px;
+}
+
+.digit .bar1.show::after, .digit .bar2.show::after, .digit .bar4.show::after, .digit .bar5.show::after {
+    border-top-color: red;
+}
+
+/* leftward */
+
+.digit .bar0::before, .digit .bar3::before, .digit .bar6::before {
+    left: -6px;
+}
+
+.digit .bar0.show::before, .digit .bar3.show::before, .digit .bar6.show::before {
+    border-right-color: red;
+}
+
+/* rightward */
+
+.digit .bar0::after, .digit .bar3::after, .digit .bar6::after {
+    right: -6px;
+}
+
+.digit .bar0.show::after, .digit .bar3.show::after, .digit .bar6.show::after {
+    border-left-color: red;
+}
