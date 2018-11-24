@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SevenSegment from './SevenSegment';
+import './DigitalClock.css'
 class DigitalClock extends Component {
     constructor(props) {
         super(props);
@@ -34,8 +35,7 @@ class DigitalClock extends Component {
         for (let i = 0; i < this.state.digits.length; i++) {
             digits.push(<SevenSegment value={this.state.digits[i]} key={i} />)
         }
-        return (<div>
-            <div>DIGITAL CLOCK</div>
+        return (<div className="clock">
             {digits}
         </div>);
     }
