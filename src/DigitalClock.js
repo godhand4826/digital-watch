@@ -4,12 +4,18 @@ import './DigitalClock.css'
 class DigitalClock extends Component {
     constructor(props) {
         super(props);
+        this.MODE = {
+            clock: "clock",
+            stopwatch: "stopwatch"
+        }
         this.state = {
-            digits: new Array(6).fill(8)
+            digits: new Array(6).fill(8),
+            mode: null,
+            intervalID: null
         }
     }
     componentDidMount() {
-        setInterval(() => {
+        const id = setInterval(() => {
             const date = new Date().toString().split(" ")
             const time = date[4].split(":")
             const hour10 = time[0][0]
@@ -29,6 +35,10 @@ class DigitalClock extends Component {
                 ]
             })
         }, 1000)
+        this.setState({
+            mode: this.MODE.clock,
+            intervalID: id
+        })
     }
     render() {
         let digits = []
